@@ -31,8 +31,8 @@ public class Categoria {
 	@Size(min = 5, max = 100, message = "O atributo tipo deve conter no mínimo 5 e no máximo 100 caracteres") 
 	private String tipo;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("categoria")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties(value = "categoria", allowSetters = true)
 	private List<Produto> produto;
 	
 	public Long getId() {
